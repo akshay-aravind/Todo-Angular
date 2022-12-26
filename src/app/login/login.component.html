@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="navbar">
+    <app-to-do-navbar></app-to-do-navbar>
+  </div>
+  <div class="head">
+    <h1>JUST DO IT</h1>
+    <div class="card">
+      <div class="card-image">
+        <h2 class="card-heading">
+          SIGN UP
+          <small>START A NEW LIFE</small>
+        </h2>
+      </div>
+      <form class="card-form" [formGroup]="logData">
+        <div class="input">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input
+              matInput
+              placeholder="pat@example.com"
+              formControlName="email"
+              required
+            />
+            <mat-error *ngIf="logData.invalid">{{
+              getErrorMessage()
+            }}</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="input">
+          <mat-form-field hintLabel="Max 15 characters" appearance="fill">
+            <mat-label>Enter Your Name</mat-label>
+            <input
+              matInput
+              #input
+              maxlength="15"
+              placeholder=" AKSHAY ARAVIND"
+              formControlName="name"
+            />
+            <mat-hint align="end">{{ input.value.length }}/15</mat-hint>
+            <mat-error></mat-error>
+          </mat-form-field>
+        </div>
+        <div class="action">
+          <button
+            [ngClass]="[logData.invalid ? 'disable-button' : 'action-button']"
+            [disabled]="logData.invalid"
+            (click)="submit()"
+          >
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+
+.container {
+  display: flex;
+  width: 100%;
+  background-image: url(./andrew-kliatskyi-tsmO0npD4pY-unsplash.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1660914256311-918659fae88f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.secondcontainer {
+  width: 100%;
+  max-width: 2000px;
+}
+
+
+.search {
+  width: 100%;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  input{
+    padding: 15px;
+    border-radius: 5px;
+    width: 300px;
+  }
+  button {
+    padding: 14px;
+  }
+}
+
+.table {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+.mat-mdc-table {
+background-color: rgb(49, 49, 49);
+border-radius: 15px 15px 0 0;
+}
+#cell1 {
+  border-radius: 15px 0 0 0;
+}
+
+#cell2 {
+  border-radius: 0 15px 0 0;
+}
+.mat-cell {
+padding: 40px;
+text-align:center;
+color: white;
+}
+.mat-mdc-header-cell {
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.mat-mdc-header-row{
+  color: rgb(255, 255, 255);
+  background-color: rgb(182, 182, 182);
+}
+
+.mat-mdc-paginator {
+  background-color:   rgb(182, 182, 182);
+  border-radius: 0 0 15px 15px;
+  color: rgb(0, 0, 0);
+  font-size: small;
+    
+}
+
+
+.mat-mdc-cell {
+color: rgb(253, 253, 253);
+text-align: center;
+}
+.mat-mdc-paginator-page-size-label{
+  color: rgb(0, 0, 0);
+}
+
+
+

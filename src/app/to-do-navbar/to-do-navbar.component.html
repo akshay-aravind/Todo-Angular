@@ -1,0 +1,52 @@
+<nav class="sidebar-navigation">
+  <ul>
+    <img src="https://wallpaperaccess.com/full/299954.jpg" alt="logo" />
+    <a routerLink="/">
+      <li>
+        <strong>HOME</strong>
+
+        <span class="tooltip">Let's Go</span>
+      </li>
+    </a>
+    <a routerLink="/table">
+      <li>
+        <strong>TODO LIST</strong>
+
+        <span class="tooltip">Your tasks </span>
+      </li>
+    </a>
+    <a routerLink="/form">
+      <li>
+        <strong>ADD TODO</strong>
+
+        <span class="tooltip">Set your Goal</span>
+      </li>
+    </a>
+    <a routerLink="/about">
+      <li>
+        <strong>ABOUT</strong>
+
+        <span class="tooltip">About our platform</span>
+      </li>
+    </a>
+    <a routerLink="/login" (click)="logout()" *ngIf="user">
+      <li>
+        <strong>LOGOUT</strong>
+
+        <span class="tooltip">Logout user</span>
+      </li>
+    </a>
+    <!-- <li>
+			<i class="fa fa-newspaper-o"></i> B
+			<span class="tooltip">Contacts</span>
+		</li>
+		<li>
+			<i class="fa fa-print"></i>   M
+			<span class="tooltip">Fax</span>
+		</li>
+		<li>
+			<i class="fa fa-sliders"></i> N
+			<span class="tooltip">Settings</span>
+		</li> -->
+  </ul>
+</nav>

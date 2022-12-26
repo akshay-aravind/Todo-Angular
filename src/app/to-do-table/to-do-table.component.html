@@ -1,0 +1,89 @@
+<div class="container">
+  <app-to-do-navbar></app-to-do-navbar>
+  <div class="mat-elevation-z8" style="width: 100%">
+    <div class="table">
+      <div class="secondcontainer">
+        <form action="/action_page.php" class="search">
+          <input
+            type="text"
+            #input
+            placeholder="Search.."
+            name="search"
+            class="searchInput"
+            (input)="applyFilter($event)"
+          />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="TO-DO">
+            <th mat-header-cell *matHeaderCellDef id="cell1">TO-DO</th>
+            <td mat-cell *matCellDef="let element">{{ element.todo }}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="DESCRIPTION">
+            <th mat-header-cell *matHeaderCellDef>DESCRIPTION</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.description }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="START DATE">
+            <th mat-header-cell *matHeaderCellDef>START DATE</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.startDate | date : "M/d/yy, h:mm a" }}
+            </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="END DATE">
+            <th mat-header-cell *matHeaderCellDef>END DATE</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.endDate | date : "M/d/yy, h:mm a" }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="STATUS">
+            <th mat-header-cell *matHeaderCellDef>STATUS</th>
+            <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="EDIT/DELETE">
+            <th mat-header-cell *matHeaderCellDef id="cell2">EDIT/DELETE</th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+              style="display: flex; margin-top: 6px; justify-content: center"
+            >
+              <button mat-raised-button routerLink="/update/{{ element.id }}">
+                EDIT
+              </button>
+              <button
+                mat-raised-button
+                color="warn"
+                style="margin-left: 5px; margin-bottom: 9px"
+                (click)="deleteTodo(element.id)"
+              >
+                DELETE
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          <tr *matNoDataRow>
+            <td class="mat-cell" colspan="6">NO DATA {{ input.value }}</td>
+          </tr>
+        </table>
+
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 20]"
+          showFirstLastButtons
+          aria-label="Select page of periodic elements"
+        >
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

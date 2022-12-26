@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="navbar">
+    <app-to-do-navbar></app-to-do-navbar>
+  </div>
+  <div class="head">
+    <h1>UPDATE TASK</h1>
+    <div class="card">
+      <div class="card-image">
+        <h2 class="card-heading">
+          SET YOUR PLANS
+          <small>TIME TO CHASE YOUR GOALS</small>
+        </h2>
+      </div>
+      <form class="card-form" [formGroup]="toDoForm">
+        <div class="input">
+          <input
+            type="text"
+            class="input-field"
+            formControlName="todo"
+            required
+          />
+          <label class="input-label">SET TODO</label>
+        </div>
+        <div class="input">
+          <input
+            type="text-area"
+            class="input-field"
+            formControlName="description"
+            required
+          />
+          <label class="input-label">IN DETAIL</label>
+        </div>
+        <div class="input">
+          <mat-form-field appearance="fill" class="form-input">
+            <mat-label>Mark your status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option>None</mat-option>
+              <mat-option value="OPEN">OPEN</mat-option>
+              <mat-option value="CLOSED">CLOSED</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="input">
+          <mat-form-field appearance="fill">
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input
+                matStartDate
+                placeholder="Start date"
+                formControlName="startDate"
+              />
+              <input
+                matEndDate
+                placeholder="End date"
+                formControlName="endDate"
+              />
+            </mat-date-range-input>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </div>
+        <div class="action">
+          <button class="action-button" (click)="goBack()">CANCEL</button>
+          <button class="action-button" (click)="update()">POST</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

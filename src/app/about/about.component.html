@@ -1,0 +1,61 @@
+<div class="container">
+  <app-to-do-navbar></app-to-do-navbar>
+  <div class="typecontainer">
+    <h2 class="head">ABOUT</h2>
+    <p class="para" style="margin-top: 20px">Hello {{ user?.name }},</p>
+    <p class="para" style="margin-top: 20px">
+      A better world, that's our goal. And a better world needs better persons.
+    </p>
+    <p class="para">Cmon, let's Grow. Set your plans And Just Do It.</p>
+    <p class="para" id="feed">
+      Everyone have a plan but it's all about doing it.
+    </p>
+    <p class="para">We will help you track your plans and improve.</p>
+    <p class="para">
+      And we hope you help us too to improve. Send us your feedbacks.
+    </p>
+    <div class="form__group field">
+      <input
+        type="input"
+        class="form__field"
+        placeholder="Feedback"
+        name="name"
+        id="name"
+        required
+        [formControl]="feed"
+      />
+      <label for="name" class="form__label">Feedback</label>
+      <button
+        mat-raised-button
+        color="dark"
+        style="margin-top: 20px"
+        (click)="submit()"
+        [disabled]="feed.invalid"
+      >
+        Submit
+      </button>
+    </div>
+    <div class="container2" *ngIf="feedback">
+      <div class="dialogbox">
+        <div class="body">
+          <span class="tip tip-up"></span>
+          <div
+            class="message"
+            style="display: flex; justify-content: space-between"
+          >
+            <h4 style="margin-top: 15px; margin-left: 5px">{{ feedback }}</h4>
+            <button
+              (click)="delete()"
+              mat-fab
+              color="primary"
+              aria-label="Example icon button with a delete icon"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p class="response">Thankyou for your feedback {{ user?.name }}.</p>
+    </div>
+  </div>
+</div>
